@@ -54,15 +54,15 @@ function CarouselProject() {
 
       <div className="relative ">
         <Carousel className="w-full">
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4 ">
             {projects.map((project) => (
               <CarouselItem
                 key={project.id}
-                className="pl-4 basis-[85%] sm:basis-[70%] md:basis-[55%] lg:basis-[45%]"
+                className="px-4 basis-[80%] md:basis-[60%] lg:basis-[50%]"
               >
                 <div className="p-1 h-full">
                   <Card className="w-full h-full rounded-2xl shadow-sm hover:shadow-md transition">
-                    <CardContent className="flex flex-col gap-4 p-6 h-full">
+                    <CardContent className="flex flex-col gap-4 mx-4 px-6 h-full ">
                       {/* TYPE */}
                       <span className="text-xs uppercase tracking-wide text-gray-400">
                         {project.type}
@@ -85,8 +85,8 @@ function CarouselProject() {
                         ))}
                       </div>
 
-                      <div className="flex justify-between items-center pt-4 border-t">
-                        <span className="text-xs text-gray-400">Фокус</span>
+                      <div className="flex justify-between items-center pb-2 border-b ">
+                        <span className="text-sm text-gray-400">Фокус</span>
                         <span className="text-sm font-medium text-gray-800"></span>
                         <Badge>{project.main_technology}</Badge>
                       </div>

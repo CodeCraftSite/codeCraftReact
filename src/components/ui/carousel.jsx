@@ -31,6 +31,7 @@ function Carousel({
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
       loop: true,
+      align: "center",
     },
     plugins,
   );
