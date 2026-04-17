@@ -1,7 +1,7 @@
 import { Button } from "./ui/button";
 
 function TalkAboutProject() {
-  return <Button variant="outline">Обсудить проект</Button>;
+  return <Button variant="secondary">Обсудить проект</Button>;
 }
 
 export default TalkAboutProject;
