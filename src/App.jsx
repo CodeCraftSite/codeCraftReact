@@ -1,6 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
-import IndexPage from "./pages/Index/IndexPage";
+import IndexPage from "./pages/IndexPage";
 
 function App() {
   return (

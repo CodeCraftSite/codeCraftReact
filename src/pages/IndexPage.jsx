@@ -1,6 +1,6 @@
-import CarouselProject from "../../components/CarouselProject";
-import { Button } from "../../components/ui/button";
-import "./IndexPageStyle.css";
+import CarouselProject from "../components/CarouselProject";
+import InfoCard from "../components/InfoCard";
+import { Button } from "../components/ui/button";
 
 function IndexPage() {
   return (
@@ -26,6 +26,20 @@ function IndexPage() {
 
       <p className="text-lg text-gray-600  animate-fade-in my-5">
         Никаких шаблоных решений, только индивидуальный подход к каждому проекту
+      </p>
+
+      <div className="flex flex-row gap-4 my-5">
+        {/* Это через цикл будет! */}
+        <InfoCard />
+        <InfoCard />
+      </div>
+
+      <h2 className="text-5xl font-bold text-gray-900 animate-fade-in mb-5">
+        Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
+      </h2>
+      <p className="text-lg text-gray-600 animate-fade-in pb-5">
+        Клик по карточке типа проекта запускает анимацию раскрытия и открывает
+        3D‑карусель работ именно в этой категории
       </p>
 
       <CarouselProject />
