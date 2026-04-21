@@ -1,25 +1,23 @@
 import { Badge } from "./ui/badge";
 
-function InfoCard() {
+function InfoCard(props) {
   return (
-    <div className="border border-gray-400 p-5 rounded-4xl animate-fade-in">
+    <div
+      className={`h-full ${props.class || "w-1/2"} border border-gray-400 p-5 rounded-4xl animate-fade-in`}
+    >
       <div className="flex flex-col gap-4">
-        <Badge className="text-base p-4 ">Что мы делаем лучше всего</Badge>
-        <h2 className="text-2xl font-bold text-gray-800">
-          Не “сайт для галочки”, а полноценную продуктовую витрину.
-        </h2>
+        <Badge className="text-base p-4 ">{props.name}</Badge>
+        <h2 className="text-3xl font-bold text-gray-800">{props.title}</h2>
 
-        <p className="text-base text-gray-600 text-left">
-          Мы соединяем инженерную глубину, продуктовую упаковку и дорогую
-          визуальную подачу. Поэтому проекты на сайте выглядят как реальные
-          кейсы студии, а не как набор карточек с описаниями.
-        </p>
+        <p className="text-lg text-gray-600 text-left">{props.description}</p>
 
-        <ul className="list-disc pl-6 space-y-2 text-gray-600 text-lg font-bold">
-          <li>Сильные case studies вместо абстрактных promises.</li>
-          <li>Архитектурная подача без перегруза и без “воды”.</li>
-          <li>Мotion и 3D — как усилитель смысла, а не самоцель.</li>
-        </ul>
+        {props.items_list && props.items_list.length > 0 && (
+          <ul className="list-disc pl-6 space-y-2 text-gray-600 text-lg font-bold">
+            {props.items_list.map((item, index) => (
+              <li key={index}>{item.text}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

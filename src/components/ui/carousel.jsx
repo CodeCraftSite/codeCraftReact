@@ -189,7 +189,7 @@ function CarouselNext({
   size = "icon-sm",
   ...props
 }) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel();
+  const { scrollNext } = useCarousel();
 
   return (
     <Button

@@ -66,7 +66,7 @@ function CarouselProject() {
                 key={project.id}
                 className="basis-full sm:basis-[92%] md:basis-[85%] lg:basis-[75%] xl:basis-[70%] px-2  "
               >
-                <div className="p-1 h-full min-h-[420px]">
+                <div className="p-1 h-full min-h-105">
                   <Card className="w-full h-full rounded-2xl shadow-sm transition duration-300 ease-in-out transform-gpu hover:shadow-md hover:scale-[1.02]">
                     <CardContent className="flex flex-col gap-5 mx-4 px-6 h-full ">
                       <span className="text-sm uppercase tracking-wide text-gray-400 border-b border-gray-200 pb-1">
