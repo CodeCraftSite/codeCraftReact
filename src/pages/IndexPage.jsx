@@ -1,7 +1,10 @@
-import Capatabiels from "../components/CapatabilesComponents/Capatabiles";
+﻿import Capatabiels from "../components/CapatabilesComponents/Capatabiles";
 import CarouselProject from "../components/CarouselProject";
+import ContactInfo from "../components/ContactInfo";
+import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
 import ProcessSection from "../components/processComponents/ProcessSection";
+import { Badge } from "../components/ui/badge";
 import { Button } from "../components/ui/button";
 
 function IndexPage() {
@@ -76,13 +79,16 @@ function IndexPage() {
         ))}
       </div>
 
-      <h2 className="text-5xl font-bold text-gray-900 animate-fade-in  mt-26 border-t border-gray-400 pt-3">
-        Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
-      </h2>
-      <p className="text-lg text-gray-600 animate-fade-in ">
-        Клик по карточке типа проекта запускает анимацию раскрытия и открывает
-        3D‑карусель работ именно в этой категории
-      </p>
+      <div className=" mt-26 border-t border-gray-400 pt-3">
+        <Badge className="text-base p-4 ">Экспертиза</Badge>
+        <h2 className="text-5xl font-bold text-gray-900 animate-fade-in ">
+          Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
+        </h2>
+        <p className="text-lg text-gray-600 animate-fade-in mt-4">
+          Клик по карточке типа проекта запускает анимацию раскрытия и открывает
+          3D‑карусель работ именно в этой категории
+        </p>
+      </div>
 
       <CarouselProject />
 
@@ -92,6 +98,12 @@ function IndexPage() {
       <ProcessSection></ProcessSection>
 
       <Capatabiels></Capatabiels>
+
+      <div>
+        <ContactInfo></ContactInfo>
+      </div>
+
+      <Footer></Footer>
     </div>
   );
 }
