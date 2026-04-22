@@ -12,7 +12,10 @@ function ProcessSection() {
   ];
 
   return (
-    <section className="flex flex-col gap-8 md:flex-row md:items-start">
+    <section
+      className="flex flex-col gap-8 md:flex-row md:items-start"
+      id="process"
+    >
       <div className="md:sticky md:top-24 md:self-start md:w-[42%]">
         <InfoCard
           class="w-full"

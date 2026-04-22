@@ -49,7 +49,10 @@ function Capatabiels() {
   ];
 
   return (
-    <section className="mt-28 space-y-4 border-t border-gray-300 pt-3">
+    <section
+      className="mt-28 space-y-4 border-t border-gray-300 pt-3"
+      id="capatabilies"
+    >
       <Badge className="text-base p-4 mt-3">Экспертиза</Badge>
       <h1 className="text-5xl font-bold text-gray-900 animate-fade-in">
         Экспертиза студии - без пустых "мы умеем всё".

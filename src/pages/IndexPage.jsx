@@ -49,7 +49,7 @@ function IndexPage() {
   ];
 
   return (
-    <div className="flex flex-col space-y-8">
+    <div id="product" className="flex flex-col space-y-8">
       <div className="flex flex-row pb-3">
         <h1 className="text-7xl font-bold text-gray-900 animate-fade-in">
           Делаем software-продукты, которые выглядят дорого и работают хорошо
@@ -79,7 +79,7 @@ function IndexPage() {
         ))}
       </div>
 
-      <div className=" mt-26 border-t border-gray-400 pt-3">
+      <div id="services" className=" mt-26 border-t border-gray-400 pt-3">
         <Badge className="text-base p-4 ">Экспертиза</Badge>
         <h2 className="text-5xl font-bold text-gray-900 animate-fade-in ">
           Сначала выбираем тип проекта, потом разворачиваем кейсы категории.

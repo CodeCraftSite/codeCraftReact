@@ -3,7 +3,10 @@ import { Badge } from "./ui/badge";
 
 function ContactInfo() {
   return (
-    <section className="max-w-full w-full rounded-2xl border border-border p-8">
+    <section
+      className="max-w-full w-full rounded-2xl border border-border p-8"
+      id="contacs"
+    >
       <div className="grid gap-10 md:grid-cols-2">
         <div className="md:pr-10">
           <Badge className="h-9 rounded-full px-4 py-2 text-sm">

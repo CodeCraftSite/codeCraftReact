@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 import TalkAboutProject from "./TalkAboutProject";
 import { Button } from "./ui/button";
 import { ButtonGroup } from "./ui/button-group";
@@ -5,16 +6,16 @@ import WatchProjectBtn from "./WatchProjectBtn";
 
 function Header() {
   const buttons = [
-    { name: "Продукты", href: "#" },
-    { name: "Услуги", href: "#" },
-    { name: "Showcase", href: "#" },
-    { name: "Процесс", href: "#" },
-    { name: "Экспертиза", href: "#" },
-    { name: "Контакты", href: "#" },
+    { name: "Продукты", href: "product" },
+    { name: "Услуги", href: "services" },
+    { name: "Витрина", href: "showcase" },
+    { name: "Процесс", href: "process" },
+    { name: "Экспертиза", href: "capatabilies" },
+    { name: "Контакты", href: "contacs" },
   ];
 
   return (
-    <header className="bg-gray-800 text-white">
+    <header className="sticky top-0 z-50 bg-gray-800 text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-5">
         <div className="flex flex-col">
           <h1 className="text-lg font-semibold">CodeCraft</h1>
@@ -31,8 +32,16 @@ function Header() {
                 variant="link"
                 size="sm"
                 className="text-white text-base"
+                asChild
               >
-                <a href={button.href}>{button.name}</a>
+                <Link
+                  to={button.href}
+                  smooth={true}
+                  duration={500}
+                  offset={-96}
+                >
+                  {button.name}
+                </Link>
               </Button>
             ))}
           </ButtonGroup>
