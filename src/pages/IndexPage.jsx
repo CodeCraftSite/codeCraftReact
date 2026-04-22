@@ -1,3 +1,4 @@
+import Capatabiels from "../components/CapatabilesComponents/Capatabiles";
 import CarouselProject from "../components/CarouselProject";
 import InfoCard from "../components/InfoCard";
 import ProcessSection from "../components/processComponents/ProcessSection";
@@ -89,6 +90,8 @@ function IndexPage() {
       <div>Блок с каруселью подробный</div> */}
 
       <ProcessSection></ProcessSection>
+
+      <Capatabiels></Capatabiels>
     </div>
   );
 }

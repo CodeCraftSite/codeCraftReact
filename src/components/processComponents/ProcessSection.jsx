@@ -12,18 +12,20 @@ function ProcessSection() {
   ];
 
   return (
-    <div className="flex flex-row items-center gap-8">
-      <InfoCard
-        class="w-full"
-        name={processSteps[0].name}
-        title={processSteps[0].title}
-        description={processSteps[0].description}
-      />
+    <section className="flex flex-col gap-8 md:flex-row md:items-start">
+      <div className="md:sticky md:top-24 md:self-start md:w-[42%]">
+        <InfoCard
+          class="w-full"
+          name={processSteps[0].name}
+          title={processSteps[0].title}
+          description={processSteps[0].description}
+        />
+      </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 md:w-[58%]">
         <ProcessSteps />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -150,3 +150,17 @@
 .animate-fade-in {
   animation: fadeIn 1s ease-in-out forwards;
 }
+
+@keyframes marqueeX {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-x {
+  animation: marqueeX 22s linear infinite;
+  will-change: transform;
+}
