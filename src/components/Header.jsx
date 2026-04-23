@@ -11,7 +11,7 @@ function Header() {
     { name: "Витрина", href: "showcase" },
     { name: "Процесс", href: "process" },
     { name: "Экспертиза", href: "capatabilies" },
-    { name: "Контакты", href: "contacs" },
+    { name: "Контакты", contacs },
   ];
 
   return (
