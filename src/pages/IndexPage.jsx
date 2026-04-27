@@ -1,4 +1,5 @@
-﻿import Capatabiels from "../components/CapatabilesComponents/Capatabiles";
+﻿import { AuroraText } from "../../components/aurora";
+import Capatabiels from "../components/CapatabilesComponents/Capatabiles";
 import CarouselProject from "../components/CarouselProject";
 import ContactInfo from "../components/ContactInfo";
 import Footer from "../components/Footer";
@@ -52,7 +53,8 @@ function IndexPage() {
     <div id="product" className="flex flex-col space-y-8">
       <div className="flex flex-row pb-3">
         <h1 className="text-7xl font-bold text-gray-900 animate-fade-in">
-          Делаем software-продукты, которые выглядят дорого и работают хорошо
+          Делаем <AuroraText>software-продукты,</AuroraText> которые выглядят
+          дорого и работают хорошо
         </h1>
       </div>
       <span className="text-2xl text-gray-500  animate-fade-in">
