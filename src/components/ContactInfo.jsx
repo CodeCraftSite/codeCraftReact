@@ -1,5 +1,5 @@
 import Form from "./Form";
-import { Badge } from "./ui/badge";
+import { AnimatedBadge } from "./ui/animatedbadge";
 
 function ContactInfo() {
   return (
@@ -9,9 +9,7 @@ function ContactInfo() {
     >
       <div className="grid gap-10 md:grid-cols-2">
         <div className="md:pr-10">
-          <Badge className="h-9 rounded-full px-4 py-2 text-sm">
-            Оставить заявку
-          </Badge>
+          <AnimatedBadge text="Оставить заявку" borderColor="via-purple-500" />
 
           <h2 className="mt-6 text-5xl font-bold ">
             Расскажите, что нужно сделать — мы разберём задачу по‑взрослому.

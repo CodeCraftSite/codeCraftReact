@@ -1,4 +1,4 @@
-import { Badge } from "./ui/badge";
+import { AnimatedBadge } from "./ui/animatedbadge";
 
 function InfoCard(props) {
   return (
@@ -6,7 +6,11 @@ function InfoCard(props) {
       className={`h-full ${props.class || "w-1/2"} border border-gray-400 p-5 rounded-4xl animate-fade-in`}
     >
       <div className="flex flex-col gap-4">
-        <Badge className="text-base p-4">{props.name}</Badge>
+        <AnimatedBadge
+          text={props.name}
+          borderColor="via-purple-500"
+          className=""
+        />
         <h2 className="text-3xl font-bold text-gray-800">{props.title}</h2>
 
         <p className="text-lg text-gray-600 text-left">{props.description}</p>

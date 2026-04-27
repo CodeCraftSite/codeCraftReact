@@ -5,7 +5,7 @@ import ContactInfo from "../components/ContactInfo";
 import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
 import ProcessSection from "../components/processComponents/ProcessSection";
-import { Badge } from "../components/ui/badge";
+import { AnimatedBadge } from "../components/ui/animatedbadge";
 import { Button } from "../components/ui/button";
 
 function IndexPage() {
@@ -82,7 +82,7 @@ function IndexPage() {
       </div>
 
       <div id="services" className=" mt-26 border-t border-gray-400 pt-3">
-        <Badge className="text-base p-4 ">Экспертиза</Badge>
+        <AnimatedBadge text="Экспертиза" borderColor="via-purple-500" />
         <h2 className="text-5xl font-bold text-gray-900 animate-fade-in ">
           Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
         </h2>

@@ -1,4 +1,4 @@
-import { Badge } from "../ui/badge";
+import { AnimatedBadge } from "../ui/animatedbadge";
 import CapCard from "./CapCard";
 
 function Capatabiels() {
@@ -53,7 +53,7 @@ function Capatabiels() {
       className="mt-28 space-y-4 border-t border-gray-300 pt-3"
       id="capatabilies"
     >
-      <Badge className="text-base p-4 mt-3">Экспертиза</Badge>
+      <AnimatedBadge text="Экпертиза" borderColor="via-purple-500" />
       <h1 className="text-5xl font-bold text-gray-900 animate-fade-in">
         Экспертиза студии - без пустых "мы умеем всё".
       </h1>

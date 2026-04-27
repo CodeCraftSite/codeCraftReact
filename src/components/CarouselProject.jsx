@@ -9,6 +9,32 @@ import {
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 function CarouselProject() {
+  const handleTiltMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width; // 0..1
+    const py = (e.clientY - rect.top) / rect.height; // 0..1
+
+    const mx = px * 100;
+    const my = py * 100;
+
+    // tilt to each corner depending on cursor position
+    const maxTilt = 12; // degrees
+    const ry = (px - 0.5) * (maxTilt * 2); // -max..max
+    const rx = (0.5 - py) * (maxTilt * 2); // -max..max
+
+    e.currentTarget.style.setProperty("--mx", `${mx}%`);
+    e.currentTarget.style.setProperty("--my", `${my}%`);
+    e.currentTarget.style.setProperty("--rx", `${rx.toFixed(2)}deg`);
+    e.currentTarget.style.setProperty("--ry", `${ry.toFixed(2)}deg`);
+  };
+
+  const handleTiltLeave = (e) => {
+    e.currentTarget.style.removeProperty("--mx");
+    e.currentTarget.style.removeProperty("--my");
+    e.currentTarget.style.removeProperty("--rx");
+    e.currentTarget.style.removeProperty("--ry");
+  };
+
   const projects = [
     {
       id: 1,
@@ -66,9 +92,13 @@ function CarouselProject() {
                 key={project.id}
                 className="basis-full sm:basis-[92%] md:basis-[85%] lg:basis-[75%] xl:basis-[70%] px-2  "
               >
-                <div className="p-1 h-full min-h-105">
-                  <Card className="w-full h-full rounded-2xl shadow-sm transition duration-300 ease-in-out transform-gpu hover:shadow-md hover:scale-[1.02]">
-                    <CardContent className="flex flex-col gap-5 mx-4 px-6 h-full ">
+                <div
+                  className="p-1 h-full min-h-105 perspective-1200 group"
+                  onMouseMove={handleTiltMove}
+                  onMouseLeave={handleTiltLeave}
+                >
+                  <Card className="w-full h-full rounded-2xl shadow-sm card-3d">
+                    <CardContent className="flex flex-col gap-5 mx-4 px-6 h-full card-3d__content">
                       <span className="text-sm uppercase tracking-wide text-gray-400 border-b border-gray-200 pb-1">
                         {project.type}
                       </span>
