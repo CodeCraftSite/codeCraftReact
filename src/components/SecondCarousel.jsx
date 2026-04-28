@@ -6,12 +6,16 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 
+import { useState } from "react";
 import { Link } from "react-scroll";
+import FullInfoCard from "./FullInfoCard";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white p-0 text-gray-900 shadow-sm">
       <div className="px-6 py-4">
@@ -152,7 +156,10 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                         ) : null}
 
                         <div className="mt-2 flex flex-wrap gap-3">
-                          <Button className="rounded-full px-6">
+                          <Button
+                            className="rounded-full px-6"
+                            onClick={() => setOpen(true)}
+                          >
                             Открыть кейс
                           </Button>
                           <Button
@@ -176,12 +183,12 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                           <p className="text-xs font-semibold tracking-wide text-gray-400">
                             {caseItem.previewTitle ?? "PREVIEW"}
                           </p>
-                          <div className="mt-4 h-28 rounded-2xl border border-gray-200 bg-[linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-[size:18px_18px] p-4">
+                          <div className="mt-4 h-28 rounded-2xl border border-gray-200 bg-[linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[18px_18px] p-4">
                             <div className="flex h-full items-end gap-2">
                               {[18, 34, 26, 48, 40, 62, 54].map((h, i) => (
                                 <div
                                   key={i}
-                                  className="w-3 rounded-full bg-gradient-to-t from-amber-400 to-orange-300"
+                                  className="w-3 rounded-full bg-linear-to-t from-amber-400 to-orange-300"
                                   style={{ height: `${h}%` }}
                                 />
                               ))}
@@ -228,6 +235,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
             </CarouselContent>
           </Carousel>
         )}
+        {open === true && <FullInfoCard isOpen={open} setOpen={setOpen} />}
       </div>
     </div>
   );
