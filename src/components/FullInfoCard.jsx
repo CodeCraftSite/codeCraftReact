@@ -108,21 +108,38 @@ function FullInfoCard({ isOpen, setOpen }) {
 
               <CardContent className="space-y-4">
                 <Card>
-                  <CardContent className="p-4">
-                    Не абстрактный лендинг. Кейс подан как реальный
-                    engine-продукт.
+                  <CardHeader>
+                    <CardTitle className="font-semibold text-2xl">
+                      Не абстрактный лендинг.
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-xl">
+                    Кейс подан как реальный 3d / graphics runtime‑продукт с
+                    инженерной поверхностью и структурой.
                   </CardContent>
                 </Card>
 
                 <Card>
-                  <CardContent className="p-4">
-                    Есть контекст: задача, решение, результат, стек.
+                  <CardHeader>
+                    <CardTitle className="font-semibold text-2xl">
+                      Видно, что делали
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-xl">
+                    Есть понятный контекст: задача, решение, результат, стек и
+                    формат поставки.
                   </CardContent>
                 </Card>
 
                 <Card>
-                  <CardContent className="p-4">
-                    Видна инженерная глубина и структура системы.
+                  <CardHeader>
+                    <CardTitle className="font-semibold text-2xl">
+                      Есть за что зацепиться клиенту.
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-xl">
+                    Сразу считываются роль команды, глубина реализации и
+                    ожидаемый outcome.
                   </CardContent>
                 </Card>
               </CardContent>
@@ -138,7 +155,7 @@ function FullInfoCard({ isOpen, setOpen }) {
               <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Задача</CardTitle>
+                    <CardTitle className="text-xl">Задача</CardTitle>
                   </CardHeader>
                   <CardContent>
                     Построить управляемый движок без vendor lock‑in и с
@@ -147,7 +164,7 @@ function FullInfoCard({ isOpen, setOpen }) {
                 </Card>
                 <Card>
                   <CardHeader>
-                    <CardTitle>Решение</CardTitle>
+                    <CardTitle className="text-xl">Решение</CardTitle>
                   </CardHeader>
                   <CardContent>
                     Собрали render graph, GPU resource manager, ECS‑сцену и
@@ -156,7 +173,7 @@ function FullInfoCard({ isOpen, setOpen }) {
                 </Card>
                 <Card>
                   <CardHeader>
-                    <CardTitle>Результат</CardTitle>
+                    <CardTitle className="text-xl">Результат</CardTitle>
                   </CardHeader>
                   <CardContent>
                     Получили стабильный FPS и ускорили разработку 3D‑фич через
@@ -177,7 +194,9 @@ function FullInfoCard({ isOpen, setOpen }) {
                 <Card>
                   <CardHeader>
                     Product scope
-                    <CardTitle>Scope</CardTitle>
+                    <CardTitle className="font-semibold text-lg">
+                      Scope
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     Структурировали продуктовый контур под задачу: 3D / Graphics
@@ -187,7 +206,9 @@ function FullInfoCard({ isOpen, setOpen }) {
                 <Card>
                   <CardHeader>
                     UX / UI
-                    <CardTitle>Interface layer</CardTitle>
+                    <CardTitle className="font-semibold text-lg">
+                      Interface layer
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     Кейс упирается в runtime‑качество, производительность и
@@ -197,7 +218,9 @@ function FullInfoCard({ isOpen, setOpen }) {
                 <Card>
                   <CardHeader>
                     Implementation
-                    <CardTitle>Engineering core</CardTitle>
+                    <CardTitle className="font-semibold text-lg">
+                      Engineering core
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     Реализация опирается на стек Java / Vulkan / OpenGL и роль
@@ -207,7 +230,9 @@ function FullInfoCard({ isOpen, setOpen }) {
                 <Card>
                   <CardHeader>
                     Delivery
-                    <CardTitle>Delivery format</CardTitle>
+                    <CardTitle className="font-semibold text-lg">
+                      Delivery format
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     Упор на техническую состоятельность: графический runtime,
@@ -223,7 +248,7 @@ function FullInfoCard({ isOpen, setOpen }) {
                   Архитектура
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-2 mx-4 text-lg">
                 <li>
                   Абстракция рендер‑бэкендов с единым контрактом команд GPU.
                 </li>
@@ -259,43 +284,56 @@ function FullInfoCard({ isOpen, setOpen }) {
                     </div>
                   </div>
                 </Card>
+                <Card className="p-0 rounded-xl overflow-hidden">
+                  <div className="flex items-start gap-3 p-4">
+                    <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                      <span className="font-bold text-xs">2</span>
+                    </div>
+                    <div>
+                      <h3 className="font-medium ">Rendering</h3>
+                      <p className="text-sm  mt-1">
+                        Render graph, batching, post‑processing, GPU profiling.
+                      </p>
+                    </div>
+                  </div>
+                </Card>
 
-                <div className="flex items-start gap-3 p-4 rounded-x">
-                  <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                    <span className="font-bold text-sm">2</span>
+                <Card className="p-0 rounded-xl overflow-hidden">
+                  <div className="flex items-start gap-3 p-4">
+                    <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                      <span className="font-bold text-xs">3</span>
+                    </div>
+                    <div>
+                      <h3 className="font-medium ">Tooling</h3>
+                      <p className="text-sm  mt-1">
+                        Material editor, hot reload, diagnostic overlays.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium ">Rendering</h3>
-                    <p className="text-sm  mt-1">
-                      Render graph, batching, post-processing, GPU profiling.
-                    </p>
-                  </div>
-                </div>
+                </Card>
 
-                <div className="flex items-start gap-3 p-4 rounded-xl">
-                  <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                    <span className=" font-bold text-sm">3</span>
+                <Card className="p-0 rounded-xl overflow-hidden">
+                  <div className="flex items-start gap-3 p-4">
+                    <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                      <span className="font-bold text-xs">4</span>
+                    </div>
+                    <div>
+                      <h3 className="font-medium ">Integration</h3>
+                      <p className="text-sm  mt-1">
+                        Встраивание движка во внутренние продукты.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium ">Tooling</h3>
-                    <p className="text-sm mt-1">
-                      Material editor, hot reload, diagnostic overlays.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-4 rounded-xl">
-                  <div className="shrink-0 w-8 h-8 rounded-full bg-linear-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                    <span className=" font-bold text-sm">4</span>
-                  </div>
-                  <div>
-                    <h3 className="font-medium ">Integration</h3>
-                    <p className="text-sm  mt-1">
-                      Встраивание движка во внутренние продукты.
-                    </p>
-                  </div>
-                </div>
+                </Card>
               </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="font-semibold text-2xl">
+                  Похожие проекты
+                </CardTitle>
+              </CardHeader>
             </Card>
           </div>
 
@@ -345,7 +383,7 @@ function FullInfoCard({ isOpen, setOpen }) {
                   Команда и формат
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-1">
+              <CardContent className="space-y-1 mx-4 text-lg">
                 <li>KWD Engine Team</li>
                 <li>Lead Graphics Engineer</li>
                 <li>2 Rendering Engineer</li>
@@ -360,7 +398,7 @@ function FullInfoCard({ isOpen, setOpen }) {
                   Delivery notes
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-1">
+              <CardContent className="space-y-1 mx-4 text-lg">
                 <li>
                   Драйверная совместимость: fallback‑пути рендера и матрица
                   тестов по GPU.
