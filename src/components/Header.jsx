@@ -15,18 +15,14 @@ function Header() {
     { name: "Контакты", href: "contacs" },
   ];
 
-  const { data, loading } = useHeaderData();
-
-  console.log(data);
+  const { name, description } = useHeaderData();
 
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-5">
         <div className="flex flex-col">
-          <h1 className="text-lg font-semibold">CodeCraft</h1>
-          <p className="text-xs text-gray-400">
-            Разработка продуктов для сложных систем
-          </p>
+          <h1 className="text-lg font-semibold">{name?.data}</h1>
+          <p className="text-xs text-gray-400">{description?.data}</p>
         </div>
 
         <div className="flex items-center gap-6">

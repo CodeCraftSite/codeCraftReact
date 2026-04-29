@@ -1,8 +1,16 @@
 const _url = import.meta.env.VITE_API;
 
 const headerAPI = {
-  getName: async () => {
-    return fetch(`${_url}/api/texts`).then((r) => r.json());
+  getNameHeader: async () => {
+    const res = await fetch(`${_url}/api/site-name`);
+    if (!res.ok) throw new Error("Failed to fetch");
+    return res.json();
+  },
+
+  getDescriptionHeader: async () => {
+    const res = await fetch(`${_url}/api/short-description`);
+    if (!res.ok) throw new Error("Failed to fetch description");
+    return res.json();
   },
 };
 

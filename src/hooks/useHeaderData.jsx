@@ -1,30 +1,28 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 import headerAPI from "../api/headerAPI";
 
 export function useHeaderData() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const headerName = useQuery({
+    queryKey: ["headerName"],
+    queryFn: headerAPI.getNameHeader,
+    staleTime: 1000 * 60 * 5,
+    retry: 1,
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
+  });
 
-  useEffect(() => {
-    let isMounted = true;
-
-    headerAPI
-      .getName()
-      .then((res) => {
-        if (isMounted) setData(res);
-      })
-      .catch((err) => {
-        if (isMounted) setError(err);
-      })
-      .finally(() => {
-        if (isMounted) setLoading(false);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  return { data, loading, error };
+  const headerDescription = useQuery({
+    queryKey: ["headerDescription"],
+    queryFn: headerAPI.getDescriptionHeader,
+    staleTime: 1000 * 60 * 5,
+    retry: 1,
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
+  });
+  return {
+    name: headerName.data,
+    description: headerDescription.data,
+    isLoading: headerName.isLoading || headerDescription.isLoading,
+    error: headerName.error || headerDescription.error,
+  };
 }
