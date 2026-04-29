@@ -139,7 +139,7 @@ export const AnimatedBadge = ({
     <>
       <style>{MOVE_BG_CSS}</style>
       <div
-        className={`inline-flex w-fit rounded-full p-[1.5px] bg-gradient-to-r from-transparent ${borderColor} to-transparent [background-size:400%_100%] ${className}`}
+        className={`inline-flex w-fit rounded-full p-[1.5px] bg-linear-to-r from-transparent ${borderColor} to-transparent bg-size-[400%_100%] ${className}`}
         style={{ animation: "move-bg 8s linear infinite" }}
       >
         <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-sm text-gray-700 backdrop-blur dark:bg-[#0a091e]/80 dark:text-gray-200">

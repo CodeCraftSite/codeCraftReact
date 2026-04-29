@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import { useHeaderData } from "../hooks/useHeaderData";
 import TalkAboutProject from "./TalkAboutProject";
 import { Button } from "./ui/button";
 import { ButtonGroup } from "./ui/button-group";
@@ -13,6 +14,10 @@ function Header() {
     { name: "Экспертиза", href: "capatabilies" },
     { name: "Контакты", href: "contacs" },
   ];
+
+  const { data, loading } = useHeaderData();
+
+  console.log(data);
 
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white">
