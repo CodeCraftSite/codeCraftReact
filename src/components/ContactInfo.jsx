@@ -5,7 +5,7 @@ function ContactInfo() {
   return (
     <section
       className="max-w-full w-full rounded-2xl border border-border p-8"
-      id="contacs"
+      id="contact"
     >
       <div className="grid gap-10 md:grid-cols-2">
         <div className="md:pr-10">

@@ -51,7 +51,7 @@ function Capatabiels() {
   return (
     <section
       className="mt-28 space-y-4 border-t border-gray-300 pt-3"
-      id="capatabilies"
+      id="capabilities"
     >
       <AnimatedBadge text="Экпертиза" borderColor="via-purple-500" />
       <h1 className="text-5xl font-bold text-gray-900 animate-fade-in">

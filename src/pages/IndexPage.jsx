@@ -50,7 +50,7 @@ function IndexPage() {
   ];
 
   return (
-    <div id="product" className="flex flex-col space-y-8">
+    <div className="flex flex-col space-y-8">
       <div className="flex flex-row pb-3">
         <h1 className="text-7xl font-bold text-gray-900 animate-fade-in">
           Делаем <AuroraText>software-продукты,</AuroraText> которые выглядят
@@ -81,7 +81,7 @@ function IndexPage() {
         ))}
       </div>
 
-      <div id="services" className=" mt-26 border-t border-gray-400 pt-3">
+      <div id="portfolio" className=" mt-26 border-t border-gray-400 pt-3">
         <AnimatedBadge text="Экспертиза" borderColor="via-purple-500" />
         <h2 className="text-5xl font-bold text-gray-900 animate-fade-in ">
           Сначала выбираем тип проекта, потом разворачиваем кейсы категории.

@@ -1,47 +1,40 @@
 import { Link } from "react-scroll";
-import { useHeaderData } from "../hooks/useHeaderData";
+import { useBrandData } from "../hooks/useBrandApi";
+import { useNavigationData } from "../hooks/useNavigation";
 import TalkAboutProject from "./TalkAboutProject";
 import { Button } from "./ui/button";
 import { ButtonGroup } from "./ui/button-group";
 import WatchProjectBtn from "./WatchProjectBtn";
 
 function Header() {
-  const buttons = [
-    { name: "Продукты", href: "product" },
-    { name: "Услуги", href: "services" },
-    { name: "Витрина", href: "showcase" },
-    { name: "Процесс", href: "process" },
-    { name: "Экспертиза", href: "capatabilies" },
-    { name: "Контакты", href: "contacs" },
-  ];
-
-  const { name, description } = useHeaderData();
-
+  const { brand } = useBrandData();
+  const { navigations } = useNavigationData();
+  console.log(navigations);
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-5">
         <div className="flex flex-col">
-          <h1 className="text-lg font-semibold">{name?.data}</h1>
-          <p className="text-xs text-gray-400">{description?.data}</p>
+          <h1 className="text-lg font-semibold">{brand?.data?.title}</h1>
+          <p className="text-xs text-gray-400">{brand?.data?.subtitle}</p>
         </div>
 
         <div className="flex items-center gap-6">
           <ButtonGroup>
-            {buttons.map((button) => (
+            {navigations?.data?.map((nav) => (
               <Button
-                key={button.name}
+                key={nav.label}
                 variant="link"
                 size="sm"
                 className="text-white text-base"
                 asChild
               >
                 <Link
-                  to={button.href}
+                  to={nav.href.replace("#", "")}
                   smooth={true}
                   duration={500}
                   offset={-96}
                 >
-                  {button.name}
+                  {nav.label}
                 </Link>
               </Button>
             ))}
