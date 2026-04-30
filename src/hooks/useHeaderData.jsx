@@ -1,11 +1,11 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import headerAPI from "../api/headerAPI";
 
 export function useHeaderData() {
   const headerName = useQuery({
     queryKey: ["headerName"],
     queryFn: headerAPI.getNameHeader,
-    staleTime: 1000 * 60 * 5,
+    staleTime: Infinity,
     retry: 1,
     refetchOnWindowFocus: false,
     keepPreviousData: true,
@@ -14,10 +14,11 @@ export function useHeaderData() {
   const headerDescription = useQuery({
     queryKey: ["headerDescription"],
     queryFn: headerAPI.getDescriptionHeader,
-    staleTime: 1000 * 60 * 5,
+    staleTime: Infinity,
     retry: 1,
     refetchOnWindowFocus: false,
     keepPreviousData: true,
+    refetchOnMount: false,
   });
   return {
     name: headerName.data,
