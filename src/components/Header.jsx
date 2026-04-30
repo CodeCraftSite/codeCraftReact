@@ -9,7 +9,6 @@ import WatchProjectBtn from "./WatchProjectBtn";
 function Header() {
   const { brand } = useBrandData();
   const { navigations } = useNavigationData();
-  console.log(navigations);
   return (
     <header className="sticky top-0 z-50 bg-gray-800 text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-5">
