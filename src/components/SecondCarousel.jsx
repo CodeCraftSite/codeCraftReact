@@ -167,7 +167,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                             className="rounded-full px-6"
                           >
                             <Link
-                              to="contacs"
+                              to="contact"
                               smooth={true}
                               duration={500}
                               offset={-96}
