@@ -1,9 +1,9 @@
 import { Button } from "./ui/button";
 
-function TalkAboutProject() {
+function TalkAboutProject(props) {
   return (
     <Button variant="secondary" size="lg">
-      Обсудить проект
+      {props.contactButton}
     </Button>
   );
 }

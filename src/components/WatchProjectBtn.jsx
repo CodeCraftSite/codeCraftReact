@@ -1,9 +1,9 @@
 import { Button } from "./ui/button";
 
-function WatchProjectBtn() {
+function WatchProjectBtn(props) {
   return (
     <Button variant="secondary" size="lg">
-      Посмотреть проекты
+      {props.projectsButton}
     </Button>
   );
 }

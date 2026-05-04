@@ -7,6 +7,7 @@ import InfoCard from "../components/InfoCard";
 import ProcessSection from "../components/processComponents/ProcessSection";
 import { AnimatedBadge } from "../components/ui/animatedbadge";
 import { Button } from "../components/ui/button";
+import { useMainApi } from "../hooks/useMainApi";
 
 function IndexPage() {
   const infoCardsData = [
@@ -48,6 +49,10 @@ function IndexPage() {
       ],
     },
   ];
+
+  const { main } = useMainApi();
+
+  console.log(main);
 
   return (
     <div className="flex flex-col space-y-8">
