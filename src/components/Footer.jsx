@@ -13,7 +13,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="flex flex-row justify-between">
+    <footer className="flex flex-row justify-between text-muted-foreground">
       <p>© CodeCraft Studio — все права защищены</p>
 
       <div className="flex items-center gap-6">
@@ -23,7 +23,7 @@ function Footer() {
               key={button.name}
               variant="link"
               size="sm"
-              className=" text-base"
+              className="text-base text-foreground"
               asChild
             >
               <Link to={button.href} smooth={true} duration={500} offset={-96}>

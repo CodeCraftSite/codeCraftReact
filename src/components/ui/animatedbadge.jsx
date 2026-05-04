@@ -142,7 +142,7 @@ export const AnimatedBadge = ({
         className={`inline-flex w-fit rounded-full p-[1.5px] bg-linear-to-r from-transparent ${borderColor} to-transparent bg-size-[400%_100%] ${className}`}
         style={{ animation: "move-bg 8s linear infinite" }}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-1.5 text-sm text-gray-700 backdrop-blur dark:bg-[#0a091e]/80 dark:text-gray-200">
+        <div className="inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-1.5 text-sm text-foreground backdrop-blur">
           {icon ? icon : null}
           <span className="whitespace-nowrap">{text}</span>
         </div>
@@ -170,7 +170,7 @@ export default function AnimatedBadgeView() {
       <style>{MOVE_BG_CSS}</style>
       <section
         aria-label="Sera UI Buttons"
-        className="relative flex w-full items-center justify-center overflow-hidden p-4 font-sans antialiased bg-white dark:bg-black"
+        className="relative flex w-full items-center justify-center overflow-hidden bg-background p-4 font-sans antialiased"
       >
         <div className="z-10 flex flex-col items-center gap-8">
           <div className="flex flex-col items-center gap-4">

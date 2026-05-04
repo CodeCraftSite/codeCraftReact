@@ -176,7 +176,7 @@ function CarouselProject() {
   };
 
   return (
-    <div className="border border-gray-200 rounded-3xl bg-white p-6 flex flex-col gap-6 shadow-sm">
+    <div className="flex flex-col gap-6 rounded-3xl border border-border bg-card p-6 shadow-sm">
       <div className="relative grid">
         <div
           className={
@@ -188,7 +188,7 @@ function CarouselProject() {
           style={{ gridColumn: "1 / -1", gridRow: "1 / -1" }}
         >
           <div className="flex flex-col gap-6">
-            <span className="max-w-xl text-left text-gray-600">
+            <span className="max-w-xl text-left text-muted-foreground">
               Игры, нейронки, бизнес-продукты и другие направления. Выбери
               карточку, чтобы раскрыть кейсы.
             </span>
@@ -208,49 +208,49 @@ function CarouselProject() {
                       >
                         <Card className="w-full h-full rounded-2xl shadow-sm card-3d">
                           <CardContent className="flex flex-col gap-5 mx-4 px-6 h-full card-3d__content">
-                            <span className="text-sm uppercase tracking-wide text-gray-400 border-b border-gray-200 pb-1">
+                            <span className="text-sm uppercase tracking-wide text-muted-foreground border-b border-border pb-1">
                               {project.type}
                             </span>
 
                             <div className="flex flex-row justify-between items-center gap-4">
-                              <h3 className="text-2xl font-semibold text-gray-900">
+                              <h3 className="text-2xl font-semibold text-foreground">
                                 {project.nameProject}
                               </h3>
-                              <div className="flex h-16 w-16 items-center justify-center rounded-2xl shadow-sm bg-gray-100">
+                              <div className="flex h-16 w-16 items-center justify-center rounded-2xl shadow-sm bg-muted">
                                 <span className="text-3xl font-semibold">
                                   {project.team_alf}
                                 </span>
                               </div>
                             </div>
 
-                            <p className="text-base text-gray-600 line-clamp-4">
+                            <p className="text-base text-muted-foreground line-clamp-4">
                               {project.description}
                             </p>
 
-                            <div className="flex gap-1 border-t border-gray-200 pt-4">
-                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-gray-200 rounded-lg p-3">
-                                <span className="text-base text-gray-400">
+                            <div className="flex gap-1 border-t border-border pt-4">
+                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-border rounded-lg p-3">
+                                <span className="text-base text-muted-foreground">
                                   Кейсов
                                 </span>
-                                <span className="text-base font-medium text-gray-800">
+                                <span className="text-base font-medium text-foreground">
                                   {project.case}
                                 </span>
                               </div>
 
-                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-gray-200 rounded-lg p-3">
-                                <span className="text-base text-gray-400">
+                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-border rounded-lg p-3">
+                                <span className="text-base text-muted-foreground">
                                   Фокус
                                 </span>
-                                <span className="text-base font-medium text-gray-800">
+                                <span className="text-base font-medium text-foreground">
                                   {project.main_technology}
                                 </span>
                               </div>
 
-                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-gray-200 rounded-lg p-3">
-                                <span className="text-base text-gray-400">
+                              <div className="flex min-w-0 flex-1 flex-col gap-1 border border-border rounded-lg p-3">
+                                <span className="text-base text-muted-foreground">
                                   Команда
                                 </span>
-                                <span className="text-base font-medium text-gray-800">
+                                <span className="text-base font-medium text-foreground">
                                   {project.command}
                                 </span>
                               </div>
@@ -264,10 +264,10 @@ function CarouselProject() {
                               ))}
                             </div>
 
-                            <div className="flex justify-between items-center pb-2 border-b ">
+                            <div className="flex items-center justify-between border-b border-border pb-2">
                               <button
                                 type="button"
-                                className="text-left text-base text-gray-400 transition-colors hover:text-gray-600"
+                                className="text-left text-base text-muted-foreground transition-colors hover:text-foreground"
                                 onClick={() => openSecond(project)}
                               >
                                 Открыть направление и посмотреть кейсы

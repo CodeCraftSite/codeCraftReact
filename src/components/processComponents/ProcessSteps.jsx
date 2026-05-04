@@ -30,7 +30,7 @@ function ProcessSteps() {
   return processSteps.map((step, index) => (
     <div
       key={step.name}
-      className="flex flex-row items-start gap-4 border border-gray-400 p-5 rounded-4xl animate-fade-in"
+      className="flex flex-row items-start gap-4 rounded-4xl border border-border p-5 animate-fade-in"
     >
       <Avatar size="lg" className="size-30">
         <AvatarFallback className="font-semibold text-lg">
@@ -38,8 +38,8 @@ function ProcessSteps() {
         </AvatarFallback>
       </Avatar>
       <div className="flex flex-col gap-4">
-        <h1 className="text-2xl font-semibold">{step.name}</h1>
-        <span className="">{step.description}</span>
+        <h1 className="text-2xl font-semibold text-foreground">{step.name}</h1>
+        <span className="text-muted-foreground">{step.description}</span>
       </div>
     </div>
   ));

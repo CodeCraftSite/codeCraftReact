@@ -11,7 +11,7 @@ function ContactInfo() {
         <div className="md:pr-10">
           <AnimatedBadge text="Оставить заявку" borderColor="via-purple-500" />
 
-          <h2 className="mt-6 text-5xl font-bold ">
+          <h2 className="mt-6 text-5xl font-bold text-foreground">
             Расскажите, что нужно сделать — мы разберём задачу по‑взрослому.
           </h2>
 
@@ -22,7 +22,7 @@ function ContactInfo() {
             “свяжитесь со мной”.
           </p>
 
-          <ul className="mt-6 space-y-3 text-lg list-disc">
+          <ul className="mt-6 list-disc space-y-3 text-lg text-muted-foreground">
             <li className="flex gap-3">
               — первичный разбор задачи и формата работ
             </li>

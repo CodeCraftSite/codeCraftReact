@@ -57,12 +57,12 @@ function IndexPage() {
   return (
     <div className="flex flex-col space-y-8">
       <div className="flex flex-row pb-3">
-        <h1 className="text-7xl font-bold text-gray-900 animate-fade-in">
+        <h1 className="text-7xl font-bold text-foreground animate-fade-in">
           Делаем <AuroraText>software-продукты,</AuroraText> которые выглядят
           дорого и работают хорошо
         </h1>
       </div>
-      <span className="text-2xl text-gray-500  animate-fade-in">
+      <span className="text-2xl text-muted-foreground animate-fade-in">
         Мы проектируем и запускаем сложные digital‑системы: от внутренних
         платформ и AI‑сервисов до desktop‑инструментов, secure products и
         интерфейсов, где важны скорость, архитектура и ощущение премиального
@@ -76,7 +76,7 @@ function IndexPage() {
         </Button>
       </div>
 
-      <p className="text-lg text-gray-600  animate-fade-in ">
+      <p className="text-lg text-muted-foreground animate-fade-in ">
         Никаких шаблоных решений, только индивидуальный подход к каждому проекту
       </p>
 
@@ -86,12 +86,12 @@ function IndexPage() {
         ))}
       </div>
 
-      <div id="portfolio" className=" mt-26 border-t border-gray-400 pt-3">
+      <div id="portfolio" className=" mt-26 border-t border-border pt-3">
         <AnimatedBadge text="Экспертиза" borderColor="via-purple-500" />
-        <h2 className="text-5xl font-bold text-gray-900 animate-fade-in ">
+        <h2 className="text-5xl font-bold text-foreground animate-fade-in ">
           Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
         </h2>
-        <p className="text-lg text-gray-600 animate-fade-in mt-4">
+        <p className="text-lg text-muted-foreground animate-fade-in mt-4">
           Клик по карточке типа проекта запускает анимацию раскрытия и открывает
           3D‑карусель работ именно в этой категории
         </p>

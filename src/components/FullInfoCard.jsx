@@ -18,10 +18,10 @@ function FullInfoCard({ isOpen, setOpen }) {
   return (
     <Dialog open={isOpen} onOpenChange={setOpen}>
       <DialogContent className="max-w-[min(1500px,calc(100%-18px))]! w-full! h-[calc(100vh-36px)]! p-0 rounded-2xl overflow-y-auto overscroll-contain">
-        <div className="p-6 border-b">
+        <div className="border-b border-border p-6">
           <DialogHeader>
             <DialogTitle>
-              <div className="flex flex-wrap gap-2 border-b py-2 mb-4">
+              <div className="mb-4 flex flex-wrap gap-2 border-b border-border py-2">
                 <AnimatedBadge text="Project View" />
                 <AnimatedBadge text="Graphics & Engines" />
               </div>

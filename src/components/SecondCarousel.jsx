@@ -17,21 +17,21 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-gray-200 bg-white p-0 text-gray-900 shadow-sm">
+    <div className="overflow-hidden rounded-3xl border border-border bg-card p-0 text-foreground shadow-sm">
       <div className="px-6 py-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold tracking-wide text-gray-900">
+              <Badge className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold tracking-wide text-foreground">
                 КЕЙСЫ КАТЕГОРИИ
               </Badge>
-              <span className="text-base text-gray-700">
+              <span className="text-base text-foreground">
                 {categoryTitle ?? "Выбранная категория"}: {cases.length} кейса в
                 3D‑витрине.
               </span>
             </div>
             {categoryMeta ? (
-              <p className="mt-1 text-sm text-gray-500">{categoryMeta}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{categoryMeta}</p>
             ) : null}
           </div>
 
@@ -51,8 +51,8 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
 
       <div className="px-6 pb-6">
         {cases.length === 0 ? (
-          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6">
-            <p className="text-base text-gray-600">
+          <div className="rounded-3xl border border-border bg-muted p-6">
+            <p className="text-base text-muted-foreground">
               Для этой категории пока нет кейсов. Передай массив в проп `cases`.
             </p>
           </div>
@@ -77,16 +77,16 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                   key={caseItem.id ?? caseItem.title}
                   className="basis-full pl-6"
                 >
-                  <Card className="rounded-2xl border border-gray-200 bg-white shadow-sm">
+                  <Card className="rounded-2xl border border-border bg-card shadow-sm">
                     <CardContent className="grid gap-6 p-7 md:grid-cols-[1.15fr_0.85fr]">
                       <div className="flex flex-col gap-5">
                         <div className="flex flex-wrap items-center gap-3">
-                          <Badge className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold tracking-wide text-gray-900">
+                          <Badge className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold tracking-wide text-foreground">
                             {caseItem.category ?? categoryTitle ?? "CATEGORY"}
                           </Badge>
                           {caseItem.duration ? (
                             <Badge
-                              className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700"
+                              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground"
                               variant="outline"
                             >
                               {caseItem.duration}
@@ -94,7 +94,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                           ) : null}
                           {caseItem.demo ? (
                             <Badge
-                              className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700"
+                              className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground"
                               variant="outline"
                             >
                               {caseItem.demo}
@@ -103,38 +103,38 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                         </div>
 
                         <div className="space-y-3">
-                          <h4 className="text-4xl font-semibold leading-tight tracking-tight text-gray-900">
+                          <h4 className="text-4xl font-semibold leading-tight tracking-tight text-foreground">
                             {caseItem.title}
                           </h4>
                           {caseItem.description ? (
-                            <p className="max-w-2xl text-base leading-relaxed text-gray-600">
+                            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
                               {caseItem.description}
                             </p>
                           ) : null}
                         </div>
 
                         <div className="grid gap-3 md:grid-cols-3">
-                          <div className="rounded-2xl border border-gray-200 bg-white p-4">
-                            <p className="text-xs font-semibold tracking-wide text-gray-400">
+                          <div className="rounded-2xl border border-border bg-card p-4">
+                            <p className="text-xs font-semibold tracking-wide text-muted-foreground">
                               ОТРАСЛЬ
                             </p>
-                            <p className="mt-2 text-base font-medium text-gray-800">
+                            <p className="mt-2 text-base font-medium text-foreground">
                               {caseItem.industry ?? "—"}
                             </p>
                           </div>
-                          <div className="rounded-2xl border border-gray-200 bg-white p-4">
-                            <p className="text-xs font-semibold tracking-wide text-gray-400">
+                          <div className="rounded-2xl border border-border bg-card p-4">
+                            <p className="text-xs font-semibold tracking-wide text-muted-foreground">
                               РОЛЬ
                             </p>
-                            <p className="mt-2 text-base font-medium text-gray-800">
+                            <p className="mt-2 text-base font-medium text-foreground">
                               {caseItem.role ?? "—"}
                             </p>
                           </div>
-                          <div className="rounded-2xl border border-gray-200 bg-white p-4">
-                            <p className="text-xs font-semibold tracking-wide text-gray-400">
+                          <div className="rounded-2xl border border-border bg-card p-4">
+                            <p className="text-xs font-semibold tracking-wide text-muted-foreground">
                               СТЕК
                             </p>
-                            <p className="mt-2 text-base font-medium text-gray-800">
+                            <p className="mt-2 text-base font-medium text-foreground">
                               {caseItem.stackLabel ?? "—"}
                             </p>
                           </div>
@@ -146,7 +146,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                             {caseItem.tags.map((t) => (
                               <Badge
                                 key={t}
-                                className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700"
+                                className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground"
                                 variant="outline"
                               >
                                 {t}
@@ -179,11 +179,11 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                       </div>
 
                       <div className="grid gap-4">
-                        <div className="rounded-3xl border border-gray-200 bg-white p-5">
-                          <p className="text-xs font-semibold tracking-wide text-gray-400">
+                        <div className="rounded-3xl border border-border bg-card p-5">
+                          <p className="text-xs font-semibold tracking-wide text-muted-foreground">
                             {caseItem.previewTitle ?? "PREVIEW"}
                           </p>
-                          <div className="mt-4 h-28 rounded-2xl border border-gray-200 bg-[linear-gradient(90deg,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(0deg,rgba(0,0,0,0.05)_1px,transparent_1px)] bg-size-[18px_18px] p-4">
+                          <div className="mt-4 h-28 rounded-2xl border border-border bg-[length:18px_18px] bg-[linear-gradient(90deg,color-mix(in_oklch,var(--foreground)_12%,transparent)_1px,transparent_1px),linear-gradient(180deg,color-mix(in_oklch,var(--foreground)_12%,transparent)_1px,transparent_1px)] p-4">
                             <div className="flex h-full items-end gap-2">
                               {[18, 34, 26, 48, 40, 62, 54].map((h, i) => (
                                 <div
@@ -195,7 +195,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                             </div>
                           </div>
 
-                          <p className="mt-4 text-xs font-semibold tracking-wide text-gray-400">
+                          <p className="mt-4 text-xs font-semibold tracking-wide text-muted-foreground">
                             STACK SNAPSHOT
                           </p>
                           <div className="mt-3 flex flex-wrap gap-2">
@@ -204,7 +204,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                               .map((t) => (
                                 <Badge
                                   key={t}
-                                  className="rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold text-gray-700"
+                                  className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground"
                                   variant="outline"
                                 >
                                   {t}
@@ -213,15 +213,15 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                           </div>
                         </div>
 
-                        <div className="rounded-3xl border border-gray-200 bg-white p-5">
-                          <p className="text-xs font-semibold tracking-wide text-gray-400">
+                        <div className="rounded-3xl border border-border bg-card p-5">
+                          <p className="text-xs font-semibold tracking-wide text-muted-foreground">
                             SYSTEM LANES
                           </p>
                           <div className="mt-4 space-y-3">
                             {Array.from({ length: 4 }).map((_, i) => (
                               <div
                                 key={i}
-                                className="h-3 rounded-full bg-gray-100"
+                                className="h-3 rounded-full bg-muted"
                                 aria-hidden="true"
                               />
                             ))}

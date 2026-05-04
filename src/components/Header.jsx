@@ -15,7 +15,7 @@ function Header() {
 
   console.log(headerInfo);
   return (
-    <header className="sticky top-0 z-50 bg-gray-800 text-white">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex max-w-7xl items-center justify-between py-5">
         <div className="flex flex-col">
           <h1 className="text-lg font-semibold">{brand?.data?.title}</h1>
@@ -28,7 +28,7 @@ function Header() {
                 key={nav.label}
                 variant="link"
                 size="sm"
-                className="text-white text-base cursor-pointer"
+                className="cursor-pointer text-base text-foreground"
                 asChild
               >
                 <Link

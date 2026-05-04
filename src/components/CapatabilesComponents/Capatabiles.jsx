@@ -50,14 +50,14 @@ function Capatabiels() {
 
   return (
     <section
-      className="mt-28 space-y-4 border-t border-gray-300 pt-3"
+      className="mt-28 space-y-4 border-t border-border pt-3"
       id="capabilities"
     >
       <AnimatedBadge text="Экпертиза" borderColor="via-purple-500" />
-      <h1 className="text-5xl font-bold text-gray-900 animate-fade-in">
+      <h1 className="animate-fade-in text-5xl font-bold text-foreground">
         Экспертиза студии - без пустых "мы умеем всё".
       </h1>
-      <p className="text-lg leading-relaxed text-gray-600 text-left">
+      <p className="text-left text-lg leading-relaxed text-muted-foreground">
         Только те области, которые реально вяжутся с текущими кейсами и
         формируют ощущение цельной инжерненой студии
       </p>
@@ -68,15 +68,15 @@ function Capatabiels() {
         ))}
       </div>
 
-      <div className="overflow-hidden border border-gray-400 rounded-3xl p-4">
+      <div className="overflow-hidden rounded-3xl border border-border p-4">
         <div className="inline-flex w-max animate-marquee-x">
           <div className="flex gap-3 pr-3">
             {capTags.map((item) => (
               <div
                 key={item.tag}
-                className="rounded-3xl border border-gray-300 bg-white/60 px-6 py-4 backdrop-blur-sm"
+                className="rounded-3xl border border-border bg-card/60 px-6 py-4 backdrop-blur-sm"
               >
-                <p className="whitespace-nowrap text-base font-semibold text-gray-900">
+                <p className="whitespace-nowrap text-base font-semibold text-foreground">
                   {item.tag}
                 </p>
               </div>
@@ -87,9 +87,9 @@ function Capatabiels() {
             {capTags.map((item) => (
               <div
                 key={`${item.tag}-dup`}
-                className="rounded-3xl border border-gray-300 bg-white/60 px-6 py-4 backdrop-blur-sm"
+                className="rounded-3xl border border-border bg-card/60 px-6 py-4 backdrop-blur-sm"
               >
-                <p className="whitespace-nowrap text-base font-semibold text-gray-900">
+                <p className="whitespace-nowrap text-base font-semibold text-foreground">
                   {item.tag}
                 </p>
               </div>
