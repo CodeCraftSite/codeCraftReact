@@ -258,7 +258,7 @@ function CarouselProject() {
 
                             <div className="mt-auto flex flex-wrap gap-3">
                               {project.tech.map((techItem, i) => (
-                                <Badge key={i} className=" py-1 px-2 text-base">
+                                <Badge  key={i} className=" py-1 px-2 text-base">
                                   {techItem}
                                 </Badge>
                               ))}

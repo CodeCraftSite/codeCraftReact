@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+
 import { useBrandData } from "../hooks/useBrandApi";
 import { useHeaderData } from "../hooks/useHeaderData";
 import { useNavigationData } from "../hooks/useNavigation";
@@ -21,8 +22,8 @@ function Header() {
           <h1 className="text-lg font-semibold">{brand?.data?.title}</h1>
         </div>
 
-        <div className="flex items-center gap-6">
-          <ButtonGroup>
+        <div className="inline-flex items-center rounded-2xl border border-border px-4 bg-muted/40 p-1">
+          <ButtonGroup className="gap-4">
             {navigations?.data?.map((nav) => (
               <Button
                 key={nav.label}
@@ -44,7 +45,7 @@ function Header() {
           </ButtonGroup>
         </div>
 
-        <ThemeButton></ThemeButton>
+        <ThemeButton />
 
         <div className="flex items-center gap-4">
           <WatchProjectBtn projectsButton={headerInfo?.data?.projectsButton} />

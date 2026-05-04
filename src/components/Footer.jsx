@@ -1,16 +1,10 @@
 import { Link } from "react-scroll";
+import { useNavigationData } from "../hooks/useNavigation";
 import { Button } from "./ui/button";
 import { ButtonGroup } from "./ui/button-group";
 
 function Footer() {
-  const buttons = [
-    { name: "Продукты", href: "product" },
-    { name: "Услуги", href: "services" },
-    { name: "Витрина", href: "showcase" },
-    { name: "Процесс", href: "process" },
-    { name: "Экспертиза", href: "capatabilies" },
-    { name: "Контакты", href: "contacs" },
-  ];
+  const { navigations } = useNavigationData();
 
   return (
     <footer className="flex flex-row justify-between text-muted-foreground">
@@ -18,16 +12,21 @@ function Footer() {
 
       <div className="flex items-center gap-6">
         <ButtonGroup>
-          {buttons.map((button) => (
+          {navigations?.data?.map((nav) => (
             <Button
-              key={button.name}
+              key={nav.label}
               variant="link"
               size="sm"
-              className="text-base text-foreground"
+              className="cursor-pointer text-base text-foreground"
               asChild
             >
-              <Link to={button.href} smooth={true} duration={500} offset={-96}>
-                {button.name}
+              <Link
+                to={nav.href.replace("#", "")}
+                smooth={true}
+                duration={500}
+                offset={-96}
+              >
+                {nav.label}
               </Link>
             </Button>
           ))}
