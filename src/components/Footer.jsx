@@ -11,7 +11,7 @@ function Footer() {
       <p>© CodeCraft Studio — все права защищены</p>
 
       <div className="flex items-center gap-6">
-        <ButtonGroup>
+        <ButtonGroup className="gap-4 px-4">
           {navigations?.data?.map((nav) => (
             <Button
               key={nav.label}

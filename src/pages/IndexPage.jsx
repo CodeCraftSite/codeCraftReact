@@ -69,9 +69,11 @@ function IndexPage() {
         исполнения.
       </span>
 
-      <div className="flex flex-row gap-2 animate-fade-in">
-        <Button size="lg">Запустить обсуждение</Button>
-        <Button size="lg" variant="outline">
+      <div className="flex flex-col gap-2 animate-fade-in sm:flex-row">
+        <Button size="lg" className="w-full sm:w-auto">
+          Запустить обсуждение
+        </Button>
+        <Button size="lg" variant="outline" className="w-full sm:w-auto">
           Открыть портфолио
         </Button>
       </div>
