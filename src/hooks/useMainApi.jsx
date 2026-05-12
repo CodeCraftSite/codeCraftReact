@@ -10,8 +10,17 @@ export function useMainApi() {
     refetchOnWindowFocus: false,
     keepPreviousData: true,
   });
+  const heroContent = useQuery({
+    queryKey: ["heroContent"],
+    queryFn: mainContentAPI.getHero,
+    staleTime: Infinity,
+    retry: 1,
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
+  });
 
   return {
     main: mainContent.data,
+    hero: heroContent.data,
   };
 }

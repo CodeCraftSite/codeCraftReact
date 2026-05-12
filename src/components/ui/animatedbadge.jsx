@@ -1,5 +1,7 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+
 const FlowerIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -134,6 +136,8 @@ export const AnimatedBadge = ({
   icon,
   borderColor = "via-purple-500",
   className = "",
+  contentClassName,
+  textClassName = "whitespace-nowrap",
 }) => {
   return (
     <>
@@ -142,9 +146,14 @@ export const AnimatedBadge = ({
         className={`inline-flex w-fit rounded-full p-[1.5px] bg-linear-to-r from-transparent ${borderColor} to-transparent bg-size-[400%_100%] ${className}`}
         style={{ animation: "move-bg 8s linear infinite" }}
       >
-        <div className="inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-1.5 text-sm text-foreground backdrop-blur">
+        <div
+          className={cn(
+            "inline-flex items-center gap-2 rounded-full bg-background/90 px-4 py-1.5 text-sm text-foreground backdrop-blur",
+            contentClassName,
+          )}
+        >
           {icon ? icon : null}
-          <span className="whitespace-nowrap">{text}</span>
+          <span className={textClassName}>{text}</span>
         </div>
       </div>
     </>

@@ -61,8 +61,6 @@ function Header() {
 
       {open && (
         <div className="w-full border-t border-border bg-background/95 px-4 py-4 text-foreground backdrop-blur supports-backdrop-filter:bg-background/80 sm:hidden">
-
-
           <ButtonGroup className="flex w-full flex-col gap-4">
             {navigations?.data?.map((nav) => (
               <Button
