@@ -5,10 +5,12 @@ import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
 import ProcessSection from "../components/processComponents/ProcessSection";
 import { ProofCard } from "../components/ProofCard";
+import { RibbonCard } from "../components/RibbonCard";
 import { TrustComponent } from "../components/trustComponent";
 import { AnimatedBadge } from "../components/ui/animatedbadge";
 import { Button } from "../components/ui/button";
 import { useMainApi } from "../hooks/useMainApi";
+import { useRibbonData } from "../hooks/useRibbonData";
 
 function IndexPage() {
   const infoCardsData = [
@@ -52,18 +54,12 @@ function IndexPage() {
   ];
 
   const { hero } = useMainApi();
-
-  const heroBadgeText =
-    typeof hero?.data?.badge === "string" && hero.data.badge.trim()
-      ? hero.data.badge.trim()
-      : "Software development / Web / Enterprise / R&D";
-
-  console.log(hero);
+  const { ribbon } = useRibbonData();
 
   return (
     <div className="flex flex-col space-y-8">
       <AnimatedBadge
-        text={heroBadgeText}
+        text={hero?.data?.eyebrow}
         borderColor="via-purple-500"
         className="animate-fade-in max-w-full"
         contentClassName="text-[11px] font-semibold uppercase tracking-widest"
@@ -120,6 +116,8 @@ function IndexPage() {
           ))}
         </div>
       ) : null}
+
+      <RibbonCard ribbon={ribbon} />
 
       <div className="flex flex-row gap-4  items-stretch">
         {infoCardsData.map((cardData, index) => (
