@@ -9,11 +9,32 @@ import {
 import { useState } from "react";
 import { Link } from "react-scroll";
 import FullInfoCard from "./FullInfoCard";
+import { AnimatedBadge } from "./ui/animatedbadge";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
-function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
+function casesCountPhrase(count) {
+  const n = Number(count) || 0;
+  const mod100 = n % 100;
+  const mod10 = n % 10;
+  let word = "кейсов";
+  if (mod100 < 11 || mod100 > 14) {
+    if (mod10 === 1) word = "кейс";
+    else if (mod10 >= 2 && mod10 <= 4) word = "кейса";
+  }
+  return `${n} ${word}`;
+}
+
+function SecondCarousel({
+  categoryTitle,
+  categoryMeta,
+  cases,
+  onBack,
+  casesEyebrow,
+  backButton,
+  casesEmpty,
+}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,16 +43,28 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-3">
-              <Badge className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold tracking-wide text-foreground">
-                КЕЙСЫ КАТЕГОРИИ
-              </Badge>
+              <AnimatedBadge
+                text={casesEyebrow ?? "Кейсы направления"}
+                borderColor="via-purple-500"
+                className="max-w-full shrink-0"
+                contentClassName="text-[11px] font-semibold uppercase tracking-widest"
+                textClassName="whitespace-normal sm:whitespace-nowrap"
+                icon={
+                  <span
+                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                    aria-hidden
+                  />
+                }
+              />
               <span className="text-base text-foreground">
-                {categoryTitle ?? "Выбранная категория"}: {cases.length} кейса в
-                3D‑витрине.
+                {categoryTitle ?? "Выбранная категория"}:{" "}
+                {casesCountPhrase(cases.length)} в витрине проектов.
               </span>
             </div>
             {categoryMeta ? (
-              <p className="mt-1 text-sm text-muted-foreground">{categoryMeta}</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {categoryMeta}
+              </p>
             ) : null}
           </div>
 
@@ -42,7 +75,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
                 className="rounded-full"
                 onClick={onBack}
               >
-                Назад
+                {backButton}
               </Button>
             ) : null}
           </div>
@@ -52,9 +85,7 @@ function SecondCarousel({ categoryTitle, categoryMeta, cases = [], onBack }) {
       <div className="px-6 pb-6">
         {cases.length === 0 ? (
           <div className="rounded-3xl border border-border bg-muted p-6">
-            <p className="text-base text-muted-foreground">
-              Для этой категории пока нет кейсов. Передай массив в проп `cases`.
-            </p>
+            <p className="text-base text-muted-foreground">{casesEmpty}</p>
           </div>
         ) : (
           <Carousel className="w-full">

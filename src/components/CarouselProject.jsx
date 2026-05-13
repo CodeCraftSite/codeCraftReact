@@ -8,10 +8,17 @@ import {
 
 import { useCallback, useState } from "react";
 import SecondCarousel from "./SecondCarousel";
+import { AnimatedBadge } from "./ui/animatedbadge";
 import { Badge } from "./ui/badge";
 import { Card, CardContent } from "./ui/card";
 
-function CarouselProject() {
+function CarouselProject({
+  backButton,
+  casesEmpty,
+  casesEyebrow,
+  typesEyebrow ,
+  typesText,
+}) {
   const [openedProject, setOpenedProject] = useState(null);
   const [isSecondOpen, setIsSecondOpen] = useState(false);
 
@@ -188,13 +195,35 @@ function CarouselProject() {
           style={{ gridColumn: "1 / -1", gridRow: "1 / -1" }}
         >
           <div className="flex flex-col gap-6">
-            <span className="max-w-xl text-left text-muted-foreground">
-              Игры, нейронки, бизнес-продукты и другие направления. Выбери
-              карточку, чтобы раскрыть кейсы.
-            </span>
-
             <div className="relative">
               <Carousel className="w-full">
+                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <div className="flex min-w-0 flex-col gap-2">
+                    <AnimatedBadge
+                      text={typesEyebrow}
+                      borderColor="via-purple-500"
+                      className="max-w-full"
+                      contentClassName="text-[11px] font-semibold uppercase tracking-widest"
+                      textClassName="whitespace-normal sm:whitespace-nowrap"
+                      icon={
+                        <span
+                          className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                          aria-hidden
+                        />
+                      }
+                    />
+                    {typesText ? (
+                      <p className="max-w-3xl text-left text-base text-muted-foreground">
+                        {typesText}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div className="flex shrink-0 items-center justify-end gap-2 sm:pt-0.5">
+                    <CarouselPrevious size="icon" />
+                    <CarouselNext size="icon" />
+                  </div>
+                </div>
+
                 <CarouselContent>
                   {projects.map((project) => (
                     <CarouselItem
@@ -258,7 +287,7 @@ function CarouselProject() {
 
                             <div className="mt-auto flex flex-wrap gap-3">
                               {project.tech.map((techItem, i) => (
-                                <Badge  key={i} className=" py-1 px-2 text-base">
+                                <Badge key={i} className=" py-1 px-2 text-base">
                                   {techItem}
                                 </Badge>
                               ))}
@@ -282,11 +311,6 @@ function CarouselProject() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-
-                <div className="flex justify-center gap-3 mt-6">
-                  <CarouselPrevious size="icon" />
-                  <CarouselNext size="icon" />
-                </div>
               </Carousel>
             </div>
           </div>
@@ -307,6 +331,9 @@ function CarouselProject() {
               categoryMeta={openedProject.type}
               cases={casesByProjectId[openedProject.id] ?? []}
               onBack={closeSecond}
+              casesEyebrow={casesEyebrow}
+              backButton={backButton}
+              casesEmpty={casesEmpty}
             />
           ) : null}
         </div>

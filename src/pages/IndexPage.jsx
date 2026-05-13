@@ -11,6 +11,7 @@ import { AnimatedBadge } from "../components/ui/animatedbadge";
 import { Button } from "../components/ui/button";
 import { useMainApi } from "../hooks/useMainApi";
 import { useRibbonData } from "../hooks/useRibbonData";
+import { useSectionsApi } from "../hooks/useSectionsApi";
 
 function IndexPage() {
   const infoCardsData = [
@@ -55,6 +56,7 @@ function IndexPage() {
 
   const { hero } = useMainApi();
   const { ribbon } = useRibbonData();
+  const { sections } = useSectionsApi();
 
   return (
     <div className="flex flex-col space-y-8">
@@ -126,17 +128,25 @@ function IndexPage() {
       </div>
 
       <div id="portfolio" className=" mt-26 border-t border-border pt-3">
-        <AnimatedBadge text="Экспертиза" borderColor="via-purple-500" />
+        <AnimatedBadge
+          text={sections?.data?.eyebrow}
+          borderColor="via-purple-500"
+        />
         <h2 className="text-5xl font-bold text-foreground animate-fade-in ">
-          Сначала выбираем тип проекта, потом разворачиваем кейсы категории.
+          {sections?.data?.title}
         </h2>
         <p className="text-lg text-muted-foreground animate-fade-in mt-4">
-          Клик по карточке типа проекта запускает анимацию раскрытия и открывает
-          3D‑карусель работ именно в этой категории
+          {sections?.data?.subtitle}
         </p>
       </div>
 
-      <CarouselProject />
+      <CarouselProject
+        typesEyebrow={sections?.data?.typesEyebrow}
+        typesText={sections?.data?.typesText}
+        casesEyebrow={sections?.data?.casesEyebrow}
+        backButton={sections?.data?.backButton}
+        casesEmpty={sections?.data?.casesEmpty}
+      />
 
       {/* 
       <div>Блок с каруселью подробный</div> */}
