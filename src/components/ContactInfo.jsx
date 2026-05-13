@@ -1,7 +1,12 @@
+import { useContactApi } from "../hooks/useContactApi";
 import Form from "./Form";
 import { AnimatedBadge } from "./ui/animatedbadge";
 
 function ContactInfo() {
+  const { contactInfo } = useContactApi();
+  console.log(contactInfo);
+
+
   return (
     <section
       className="max-w-full w-full rounded-2xl border border-border p-8"
@@ -9,39 +14,39 @@ function ContactInfo() {
     >
       <div className="grid gap-10 md:grid-cols-2">
         <div className="md:pr-10">
-          <AnimatedBadge text="Оставить заявку" borderColor="via-purple-500" />
+          <AnimatedBadge
+            text={contactInfo?.data?.eyebrow}
+            borderColor="via-purple-500"
+            className="max-w-full"
+            contentClassName="text-[11px] font-semibold uppercase tracking-widest"
+            textClassName="whitespace-normal sm:whitespace-nowrap"
+            icon={
+              <span
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                aria-hidden
+              />
+            }
+          />
 
-          <h2 className="mt-6 text-5xl font-bold text-foreground">
-            Расскажите, что нужно сделать — мы разберём задачу по‑взрослому.
-          </h2>
+          <h2 className="mt-6 text-5xl font-bold text-foreground">{contactInfo?.data?.title}</h2>
 
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Оставьте короткое описание, прикрепите ТЗ или материалы, выберите
-            ориентир по бюджету и контакт. Так входящее обращение сразу будет
-            похоже на реальный старт проекта, а не на абстрактную форму
-            “свяжитесь со мной”.
+            {contactInfo?.data?.text}
           </p>
 
-          <ul className="mt-6 list-disc space-y-3 text-lg text-muted-foreground">
-            <li className="flex gap-3">
-              — первичный разбор задачи и формата работ
-            </li>
-            <li className="flex gap-3">
-              — понятная обратная связь по следующему шагу
-            </li>
-            <li className="flex gap-3">
-              — предварительная оценка диапазона и состава работ
-            </li>
-          </ul>
-
-          <div className="mt-8 rounded-3xl border border-border bg-input/30 p-5 text-base text-muted-foreground">
-            Подходит для сайтов, внутренних платформ, desktop‑продуктов,
-            secure‑system, AI‑сервисов и нестандартных инженерных задач.
-          </div>
+          {contactInfo?.data?.bullets?.length ? (
+            <ul className="mt-6 list-disc space-y-3 text-lg text-muted-foreground">
+              {contactInfo?.data?.bullets.map((item) => (
+                <li key={item} className="flex gap-3">
+                  — {item}
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
 
         <div className="md:border-l md:border-border md:pl-10">
-          <Form />
+          <Form data={contactInfo?.data} />
         </div>
       </div>
     </section>

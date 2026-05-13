@@ -9,6 +9,7 @@ import { RibbonCard } from "../components/RibbonCard";
 import { TrustComponent } from "../components/trustComponent";
 import { AnimatedBadge } from "../components/ui/animatedbadge";
 import { Button } from "../components/ui/button";
+import { useLensApi } from "../hooks/useLensApi";
 import { useMainApi } from "../hooks/useMainApi";
 import { useRibbonData } from "../hooks/useRibbonData";
 import { useSectionsApi } from "../hooks/useSectionsApi";
@@ -57,6 +58,7 @@ function IndexPage() {
   const { hero } = useMainApi();
   const { ribbon } = useRibbonData();
   const { sections } = useSectionsApi();
+  const { lens } = useLensApi();
 
   return (
     <div className="flex flex-col space-y-8">

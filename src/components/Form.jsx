@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import * as z from "zod";
 
 import SelectBudget from "./SelectBudget";
 import {
@@ -14,23 +13,14 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 
-function Form() {
+function Form({ data }) {
   const [budget, setBudget] = useState("");
 
-  const formSchema = z.object({
-    name: z
-      .string()
-      .min(2, "Имя должно иметь как минимум 2 символа")
-      .max(32, "Имя не должно превышать 32 символа"),
-    lastname: z
-      .string()
-      .min(2, "Фамилия должна иметь как минимум 2 символа")
-      .max(100, "Фамилия не должна превышать 100 символов"),
-    phone: z.string().min(6).max(32),
-    company: z.string().max(40).optional(),
-    price: z.enum(["10-30", "30-60", "60-100", "100+"]),
-    email: z.string().email().optional(),
-  });
+  const f = data?.fields;
+
+  if (!f) {
+    return null;
+  }
 
   return (
     <form>
@@ -38,88 +28,84 @@ function Form() {
         <FieldSet>
           <FieldGroup className="grid grid-cols-2 gap-x-6 gap-y-6">
             <Field>
-              <FieldLabel htmlFor="checkout-name">Имя</FieldLabel>
-              <Input id="checkout-name" placeholder="Иван" required />
+              <FieldLabel htmlFor="checkout-name">{f.firstName?.label}</FieldLabel>
+              <Input
+                id="checkout-name"
+                placeholder={f.firstName?.placeholder}
+                required
+              />
             </Field>
 
             <Field>
-              <FieldLabel htmlFor="checkout-lastname">Фамилия</FieldLabel>
-              <Input id="checkout-lastname" placeholder="Иванов" required />
+              <FieldLabel htmlFor="checkout-lastname">
+                {f.lastName?.label}
+              </FieldLabel>
+              <Input
+                id="checkout-lastname"
+                placeholder={f.lastName?.placeholder}
+                required
+              />
             </Field>
 
             <Field>
-              <FieldLabel htmlFor="checkout-phone">Номер телефона</FieldLabel>
+              <FieldLabel htmlFor="checkout-phone">{f.phone?.label}</FieldLabel>
               <Input
                 id="checkout-phone"
-                placeholder="+7 (999) 123-45-67"
+                placeholder={f.phone?.placeholder}
                 required
               />
             </Field>
 
             <Field>
               <FieldLabel htmlFor="checkout-company">
-                Компания
-                <span className="font-normal text-muted-foreground">
-                  {" "}
-                  · необязательно
-                </span>
+                {f.company?.label}
               </FieldLabel>
               <Input
                 id="checkout-company"
-                placeholder="Название компании, если есть"
+                placeholder={f.company?.placeholder}
               />
             </Field>
 
             <Field>
-              <FieldLabel htmlFor="checkout-budget">
-                Вилка цены / бюджет
-              </FieldLabel>
+              <FieldLabel htmlFor="checkout-budget">{f.budget?.label}</FieldLabel>
               <SelectBudget
                 budget={budget}
                 setBudget={setBudget}
-              ></SelectBudget>
+                options={data.budgetOptions}
+                placeholder={f.budget?.placeholder}
+              />
             </Field>
 
             <Field>
-              <FieldLabel htmlFor="checkout-email">
-                Email
-                <span className="font-normal text-muted-foreground">
-                  {" "}
-                  · необязательно
-                </span>
-              </FieldLabel>
+              <FieldLabel htmlFor="checkout-email">{f.email?.label}</FieldLabel>
               <Input
                 id="checkout-email"
                 type="email"
-                placeholder="name@company.com"
+                placeholder={f.email?.placeholder}
               />
-              <FieldDescription>
-                Можно оставить пустым, если удобнее общаться по телефону.
-              </FieldDescription>
+              {f.email?.hint ? (
+                <FieldDescription>{f.email.hint}</FieldDescription>
+              ) : null}
             </Field>
 
-            <div className="col-span-2 rounded-3xl border border-border bg-input/30 px-4 py-3 text-sm">
-              Чем точнее бюджетная вилка и описание задачи, тем быстрее можно
-              дать полезную обратную связь.
-            </div>
+            {data.rangeHint ? (
+              <div className="col-span-2 rounded-3xl border border-border bg-input/30 px-4 py-3 text-sm">
+                {data.rangeHint}
+              </div>
+            ) : null}
 
             <Field className="col-span-2">
-              <FieldLabel htmlFor="checkout-task">Что нужно сделать</FieldLabel>
+              <FieldLabel htmlFor="checkout-task">{f.task?.label}</FieldLabel>
               <Textarea
                 id="checkout-task"
-                placeholder="Опишите задачу: какой продукт нужен, в каком состоянии проект сейчас, что уже есть, что нужно спроектировать, разработать или упаковать."
+                placeholder={f.task?.placeholder}
                 className="min-h-40 resize-none"
+                required
               />
             </Field>
 
             <div className="col-span-2 rounded-3xl border border-border border-dashed bg-transparent p-4 shadow-lg">
-              <div className="text-sm font-medium">
-                Прикрепить файл ТЗ / материалы
-                <span className="font-normal text-muted-foreground">
-                  {" "}
-                  · необязательно
-                </span>
-              </div>
+              <div className="text-sm font-medium">{f.file?.label}</div>
               <div className="mt-3 flex items-center gap-3 rounded-3xl border border-transparent bg-input/50 px-3 py-2">
                 <input
                   id="checkout-attachment"
@@ -127,10 +113,9 @@ function Form() {
                   className="w-full text-sm file:mr-3 file:rounded-2xl file:border-0 file:bg-background file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-foreground"
                 />
               </div>
-              <FieldDescription className="mt-3">
-                Подойдут ТЗ, схемы, мокапы, выгрузки, скриншоты и любые рабочие
-                материалы.
-              </FieldDescription>
+              {f.file?.hint ? (
+                <FieldDescription className="mt-3">{f.file.hint}</FieldDescription>
+              ) : null}
             </div>
           </FieldGroup>
         </FieldSet>
@@ -139,13 +124,12 @@ function Form() {
           <FieldGroup className="grid items-center gap-x-6 gap-y-6 md:grid-cols-2">
             <Field>
               <Button type="submit" size="lg">
-                Оставить заявку
+                {data.submitButton}
               </Button>
             </Field>
-            <div className="text-sm text-muted-foreground">
-              Отправляя заявку, вы соглашаетесь с политикой Конфидициальности на
-              сайте
-            </div>
+            {data.submitNote ? (
+              <div className="text-sm text-muted-foreground">{data.submitNote}</div>
+            ) : null}
           </FieldGroup>
         </FieldSet>
       </FieldGroup>

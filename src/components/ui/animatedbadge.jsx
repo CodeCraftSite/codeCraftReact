@@ -132,7 +132,7 @@ const MOVE_BG_CSS = `
 `;
 
 export const AnimatedBadge = ({
-  text = "Sera UI",
+  text,
   icon,
   borderColor = "via-purple-500",
   className = "",
